@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1A034D5BDC1F1B2DBF9E8DAC /* Pods_Trip2BDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C958105651FCF252B68C909A /* Pods_Trip2BDTests.framework */; };
+		4E24990B2421FB9700C319B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24990A2421FB9700C319B8 /* LoginViewController.swift */; };
+		4E24990F2421FC6C00C319B8 /* TouristLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24990E2421FC6C00C319B8 /* TouristLoginModel.swift */; };
+		4E24991224222B5300C319B8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24991124222B5300C319B8 /* API.swift */; };
 		4EF76D4B24068D22002C3C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF76D4A24068D22002C3C3B /* AppDelegate.swift */; };
 		4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF76D4C24068D22002C3C3B /* ViewController.swift */; };
 		4EF76D5024068D22002C3C3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF76D4E24068D22002C3C3B /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 /* Begin PBXFileReference section */
 		08EABADEE8B770BFAD7233BC /* Pods-Trip2BD-Trip2BDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trip2BD-Trip2BDUITests.release.xcconfig"; path = "Target Support Files/Pods-Trip2BD-Trip2BDUITests/Pods-Trip2BD-Trip2BDUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4C1FB8EF0554FEB35CBE248D /* Pods-Trip2BD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trip2BD.release.xcconfig"; path = "Target Support Files/Pods-Trip2BD/Pods-Trip2BD.release.xcconfig"; sourceTree = "<group>"; };
+		4E24990A2421FB9700C319B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4E24990E2421FC6C00C319B8 /* TouristLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristLoginModel.swift; sourceTree = "<group>"; };
+		4E24991124222B5300C319B8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4EF76D4724068D22002C3C3B /* Trip2BD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trip2BD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF76D4A24068D22002C3C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EF76D4C24068D22002C3C3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +107,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4E24990C2421FBA300C319B8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4EF76D4C24068D22002C3C3B /* ViewController.swift */,
+				4E24990A2421FB9700C319B8 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4E24990D2421FC2800C319B8 /* API Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E24990E2421FC6C00C319B8 /* TouristLoginModel.swift */,
+			);
+			path = "API Models";
+			sourceTree = "<group>";
+		};
+		4E24991024222B3200C319B8 /* Static Functions */ = {
+			isa = PBXGroup;
+			children = (
+				4E24991124222B5300C319B8 /* API.swift */,
+			);
+			path = "Static Functions";
+			sourceTree = "<group>";
+		};
 		4EF76D3E24068D20002C3C3B = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +157,10 @@
 		4EF76D4924068D22002C3C3B /* Trip2BD */ = {
 			isa = PBXGroup;
 			children = (
+				4E24991024222B3200C319B8 /* Static Functions */,
+				4E24990D2421FC2800C319B8 /* API Models */,
+				4E24990C2421FBA300C319B8 /* Controllers */,
 				4EF76D4A24068D22002C3C3B /* AppDelegate.swift */,
-				4EF76D4C24068D22002C3C3B /* ViewController.swift */,
 				4EF76D4E24068D22002C3C3B /* Main.storyboard */,
 				4EF76D5424068D46002C3C3B /* Assets.xcassets */,
 				4EF76D5624068D46002C3C3B /* LaunchScreen.storyboard */,
@@ -165,7 +198,6 @@
 				A4F09230CF3526D6F921345D /* Pods-Trip2BDTests.debug.xcconfig */,
 				B79092EE875C8FAFE66A140A /* Pods-Trip2BDTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -408,8 +440,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E24990B2421FB9700C319B8 /* LoginViewController.swift in Sources */,
 				4EF76D5324068D22002C3C3B /* Trip2BD.xcdatamodeld in Sources */,
 				4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */,
+				4E24990F2421FC6C00C319B8 /* TouristLoginModel.swift in Sources */,
+				4E24991224222B5300C319B8 /* API.swift in Sources */,
 				4EF76D4B24068D22002C3C3B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
