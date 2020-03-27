@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Page Before Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Trip2BD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homePageBeforeLogin" title="Home Page Before Login" id="BYZ-38-t0r" customClass="ViewController" customModule="Trip2BD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,28 +24,178 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pI-G6-3yU">
-                                <rect key="frame" x="164" y="218" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-Z9-kmI">
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.83137254900000002" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bNR-vk-dBc"/>
+                                    <constraint firstAttribute="width" constant="343" id="oL5-Xq-XvS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="Login to find a Guide">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <segue destination="e1h-ig-el8" kind="show" id="Luv-dN-xwa"/>
+                                    <action selector="loginButtonTapped:" destination="e1h-ig-el8" eventType="touchUpInside" id="wIP-Wt-R2Q"/>
+                                    <segue destination="e1h-ig-el8" kind="show" id="iSN-cQ-jUy"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LgE-Z9-kmI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="blf-TU-aSh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LgE-Z9-kmI" secondAttribute="bottom" constant="20" id="g1j-DX-ADr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LgE-Z9-kmI" secondAttribute="trailing" constant="16" id="xsa-UX-W9b"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="NJk-F9-pgS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="-571"/>
+            <point key="canvasLocation" x="980" y="-571.66416791604206"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="WPb-ei-KbX">
+            <objects>
+                <tabBarController id="azK-3l-JBa" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXz-WA-QDi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="LQ1-dU-Diq" kind="relationship" relationship="viewControllers" id="aLl-1d-9JB"/>
+                        <segue destination="fu4-MS-UNz" kind="relationship" relationship="viewControllers" id="6Oa-nX-80h"/>
+                        <segue destination="kC1-ae-Wfy" kind="relationship" relationship="viewControllers" id="FNd-si-GFa"/>
+                        <segue destination="ano-jS-6cJ" kind="relationship" relationship="viewControllers" id="2zG-Q2-6b8"/>
+                        <segue destination="tet-ph-MGJ" kind="relationship" relationship="viewControllers" id="a7b-gx-ZsV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqY-v2-lfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1769" y="144"/>
+        </scene>
+        <!--Home Page After Login-->
+        <scene sceneID="0m7-OZ-phf">
+            <objects>
+                <viewController storyboardIdentifier="homePageAfterLogin" title="Home Page After Login" id="LQ1-dU-Diq" customClass="HomePageAfterLoginViewController" customModule="Trip2BD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ET4-wq-Wfd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Page after login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOc-Dt-bqU">
+                                <rect key="frame" x="102" y="73" width="170" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="MVG-9d-6aw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="homeLogo" selectedImage="homeSelectedLogo" id="Oq4-2n-8cC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XbD-6H-Awq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="197.59999999999999" y="1010.6446776611695"/>
+        </scene>
+        <!--Map View-->
+        <scene sceneID="WcL-ws-1n9">
+            <objects>
+                <viewController title="Map View" id="Hp7-on-taz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fKh-pL-F7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nqS-Wr-HCo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="mapLogo" id="6NG-lO-TgS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DdA-XK-bxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="1011"/>
+        </scene>
+        <!--My Guide-->
+        <scene sceneID="ve2-Hd-vQ4">
+            <objects>
+                <viewController title="My Guide" id="fu4-MS-UNz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Zq-0U-gXU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwB-f7-XLp">
+                                <rect key="frame" x="151" y="91" width="73" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lnf-cd-1Jl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="guideLogo" selectedImage="guideSelectedLogo" id="baR-6a-PnN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IK6-Wb-Ua8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1769" y="1011"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="5TR-df-jpE">
+            <objects>
+                <viewController title="Messages" id="kC1-ae-Wfy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bku-zO-m6t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPN-cH-azj">
+                                <rect key="frame" x="148" y="82" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6Ci-Zi-RLw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="messageLogo" selectedImage="messageSelectedLogo" id="9Kl-DT-Hpa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0J4-fC-5oX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2510" y="1011"/>
+        </scene>
+        <!--Notification-->
+        <scene sceneID="Gyy-kG-DDU">
+            <objects>
+                <viewController title="Notification" id="ano-jS-6cJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v2x-lw-hhi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPh-7q-ylt">
+                                <rect key="frame" x="146" y="90" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RUw-4b-Rzs"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="notificationLogo" id="fId-0N-0Nu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GcV-6v-qh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3265" y="1011"/>
+        </scene>
+        <!--Login Page-->
         <scene sceneID="her-bp-tXv">
             <objects>
-                <viewController id="e1h-ig-el8" customClass="LoginViewController" customModule="Trip2BD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login Page" id="e1h-ig-el8" customClass="LoginViewController" customModule="Trip2BD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rYs-vh-LGF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,21 +332,22 @@
                         <outlet property="loginButton" destination="FVW-h7-hAv" id="Net-Cs-zaI"/>
                         <outlet property="passwordTextField" destination="uwh-o4-hrM" id="pfZ-Is-S5E"/>
                         <outlet property="rememberMeSwitch" destination="VKu-UE-YQq" id="Iuk-aG-2b1"/>
+                        <segue destination="azK-3l-JBa" kind="presentation" identifier="loginToHomePage" id="66t-xq-Chn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7D-sb-UDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1685.5999999999999" y="-572.56371814092961"/>
+            <point key="canvasLocation" x="1769" y="-572"/>
         </scene>
-        <!--View Controller-->
+        <!--Registration Page-->
         <scene sceneID="eNC-0y-wI3">
             <objects>
-                <viewController id="OqH-2z-RXQ" sceneMemberID="viewController">
+                <viewController title="Registration Page" id="OqH-2z-RXQ" customClass="RegistrationPageViewController" customModule="Trip2BD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bdr-kY-f6a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app logo" translatesAutoresizingMaskIntoConstraints="NO" id="rnp-qA-yVy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rnp-qA-yVy">
                                 <rect key="frame" x="137" y="93" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="KnE-Oh-ut2"/>
@@ -225,10 +376,38 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UI8-Qp-XpO"/>
                     </view>
+                    <connections>
+                        <outlet property="profieImageView" destination="rnp-qA-yVy" id="QA3-03-SX8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mkO-Iw-wO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2351" y="-572"/>
+            <point key="canvasLocation" x="2510" y="-572"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="mbU-lf-xM6">
+            <objects>
+                <viewController title="Profile" id="tet-ph-MGJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DGc-OD-VmO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-ET-27k">
+                                <rect key="frame" x="163" y="84" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="obC-tM-yF3"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="profileLogo" selectedImage="profileSelectedLogo" id="b7T-YS-e7W"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Sj-Bh-Dc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4028" y="1011"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wGo-de-s7S">
@@ -246,11 +425,20 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4p-ug-rnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="188" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="1769" y="-1309"/>
         </scene>
     </scenes>
     <resources>
-        <image name="app logo" width="100" height="100"/>
+        <image name="guideLogo" width="24" height="24"/>
+        <image name="guideSelectedLogo" width="24" height="24"/>
+        <image name="homeLogo" width="21" height="21"/>
+        <image name="homeSelectedLogo" width="21" height="21"/>
         <image name="logoFull" width="218" height="89"/>
+        <image name="mapLogo" width="21" height="21"/>
+        <image name="messageLogo" width="21" height="15"/>
+        <image name="messageSelectedLogo" width="21" height="15"/>
+        <image name="notificationLogo" width="18" height="21"/>
+        <image name="profileLogo" width="18" height="21"/>
+        <image name="profileSelectedLogo" width="18" height="21"/>
     </resources>
 </document>

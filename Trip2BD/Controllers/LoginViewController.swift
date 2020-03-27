@@ -69,21 +69,18 @@ class LoginViewController: UIViewController {
                         do{
                             let loginResponseData = try JSONDecoder().decode(Tourist.self, from: response.data!)
                             let successMesage = loginResponseData.success
-                            //let isVerified = loginResponseData.data[0].is_verified
                             let id = loginResponseData.data[0].id
-                            //print(isVerified!)
                             print(id!)
                             
                             print(successMesage as Any)
                             
                             if(successMesage == true){
-                                //if(isVerified == 0){
                                 print("I am there!")
-                                self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil); // .presentingViewController?.presentingViewController?
+                                
+                                self.dismiss(animated: true, completion: nil)
+                                self.performSegue(withIdentifier: "loginToHomePage", sender: self)
+                                
                                 print("Passed there")
-                                    //self.dismiss(animated: true, completion: nil)
-                                    //self.performSegue(withIdentifier: "", sender: self)
-                                //}
                             }
                         } catch{
                             print("Error while parsing JSON")
