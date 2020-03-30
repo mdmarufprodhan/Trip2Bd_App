@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 struct API{
-    static let baseURL: String="http://192.168.0.113/tourplanner_server/public/api"
+    static let baseURL: String="http://192.168.0.106/tourplanner_server/public/api"
     static let API_key: String="/AHaqtuiVNFmu/KWHp7c3/TehmBmyjnZ8ITTiACMgIY="
 }
