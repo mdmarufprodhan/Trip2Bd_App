@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 
+// for places
 struct ApiResponse: Decodable{
     let success: Bool?
     let data: [Place]?
@@ -20,8 +21,18 @@ struct Place: Decodable {
     let description: String
     let place_category_tags: String
     let location: String
-    let rating: Int
-    let comments: String
+    //let rating: Double
+    //let comments: String
+}
+
+//for avgRatings
+struct AvgRating: Decodable{
+    let success: Bool?
+    let data: [Rating]?
+}
+
+struct Rating: Decodable{
+    let avg_rating: Double
 }
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -32,11 +43,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //@IBOutlet weak var topGuideCollectionView: UICollectionView!
     
     var topPlaceName = [String]()
+    var topPlaceID = [String]()
     var topPlaceImage: [UIImage] = [
-        UIImage(named: "coxsbazar")!,
         UIImage(named: "sajek")!,
         UIImage(named: "coxsbazar")!,
         UIImage(named: "sajek")!,
+        UIImage(named: "coxsbazar")!,
+        UIImage(named: "sajek")!,
+        UIImage(named: "coxsbazar")!,
         ]
     var topPlaceRating = [String]()
     
@@ -59,33 +73,56 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func getPlaceAPIData(){
-        // places API call
+        // calling places API
         let placeParameter = ["api_key" : API.API_key] as [String : Any]
         
         Alamofire.request(API.baseURL + "/places/list", method: .post, parameters: placeParameter).validate().responseJSON {
             response in
-            //print(response.result.value)
+            
             if ((response.result.value) != nil){
                 do{
                     let allPlaces = try JSONDecoder().decode(ApiResponse.self, from: response.data!)
-                    //print(allPlaces)
-                    //print("Now:")
-                    //print(allPlaces.data!)
+                    
                     for place in allPlaces.data!{
-                        //self.topPlaceData = place as! [[String : String]]
-                        //print("ID: " + String(place.id) + " Place Name: " + place.name + " Location: " + place.location + " Place Category Tags: " + place.place_category_tags + " Description: " + place.description + " Ratings: " + String(place.rating) + " Comments: " + place.comments)
-                        self.topPlaceName.append(place.name)
-                        self.topPlaceRating.append(String(place.rating))
-                    }
-                    if self.topPlaceName.count > 0{
-                        self.topPlaceCollectionView?.reloadData()
-                        //print("Reload")
+                        //self.topPlaceName.append(place.name)
+                        
+                        var ratingPlaceParameter = ["place_id" : place.id,
+                                                    "api_key" : API.API_key] as [String : Any]
+                        
+                        // calling avgRating API
+                        Alamofire.request(API.baseURL + "/places/avgPlaceRatingByID", method: .post, parameters: ratingPlaceParameter).validate().responseJSON{
+                            response in
+                            if((response.result.value) != nil){
+                                do{
+                                    let avgRatingByPlaceID = try JSONDecoder().decode(AvgRating.self, from: response.data!)
+                                    //print(avgRatingByPlaceID)
+                                    for avgRatingOfPlace in avgRatingByPlaceID.data!{
+                                        self.topPlaceRating.append(String(avgRatingOfPlace.avg_rating))
+                                        self.topPlaceName.append(place.name)
+                                        self.topPlaceID.append(String(place.id))
+                                    }
+                                    if self.topPlaceRating.count > 0{
+                                        self.topPlaceCollectionView?.reloadData()
+//                                        print("Reload 2")
+//                                        print(self.topPlaceName)
+//                                        print(self.topPlaceRating)
+                                    }
+                                    
+                                } catch{
+                                    print("We got an error to get avgRating!")
+                                }
+                            }
+                        }
                     }
                 } catch{
                     print("We got an error!")
                 }
             }
         }
+    }
+    
+    func placeDetailsSegueCall(){
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -114,7 +151,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(topPlaceName[indexPath.item])
+        print(topPlaceID[indexPath.item])
     }
 
 

@@ -295,6 +295,7 @@
                     <connections>
                         <outlet property="placeDescriptionTextView" destination="wL5-gb-4fV" id="SXh-KS-r4f"/>
                         <outlet property="placeDescriptionTextViewHeightCons" destination="WoB-RP-tsi" id="4G7-ja-iPY"/>
+                        <outlet property="placeLocationLabel" destination="bgY-S1-d0M" id="My2-Qy-xcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qB4-VR-awY" userLabel="First Responder" sceneMemberID="firstResponder"/>
