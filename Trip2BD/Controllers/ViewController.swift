@@ -21,8 +21,6 @@ struct Place: Decodable {
     let description: String
     let place_category_tags: String
     let location: String
-    //let rating: Double
-    //let comments: String
 }
 
 //for avgRatings
@@ -44,15 +42,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var topPlaceName = [String]()
     var topPlaceID = [String]()
-    var topPlaceImage: [UIImage] = [
-        UIImage(named: "sajek")!,
-        UIImage(named: "coxsbazar")!,
-        UIImage(named: "sajek")!,
-        UIImage(named: "coxsbazar")!,
-        UIImage(named: "sajek")!,
-        UIImage(named: "coxsbazar")!,
-        ]
+//    var topPlaceImage: [UIImage] = [
+//        UIImage(named: "sajek")!,
+//        UIImage(named: "coxsbazar")!,
+//        UIImage(named: "sajek")!,
+//        UIImage(named: "coxsbazar")!,
+//        UIImage(named: "sajek")!,
+//        UIImage(named: "coxsbazar")!,
+//        ]
     var topPlaceRating = [String]()
+    var placeIDForDetailsViewCall = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,7 +131,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let forTopPlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopPlaceCell", for: indexPath) as! TopPlaceCollectionViewCell
         forTopPlaceCell.topPlaceTitleLabel.text = topPlaceName[indexPath.item]
-        forTopPlaceCell.topPlaceImageView.image = topPlaceImage[indexPath.item]
+        //forTopPlaceCell.topPlaceImageView.image = topPlaceImage[indexPath.item]
         forTopPlaceCell.topPlaceRatingsLabel.text = topPlaceRating[indexPath.item]
         //
         forTopPlaceCell.layer.borderColor = UIColor.lightGray.cgColor
@@ -152,8 +151,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(topPlaceID[indexPath.item])
+        placeIDForDetailsViewCall = topPlaceID[indexPath.item]
+        self.performSegue(withIdentifier: "homeToPlaceDetails", sender: self)
     }
-
-
+    
+    
+    @IBAction func loginToFindAGuideButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "loginToFindAGuideButtonToLoginPage", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "homeToPlaceDetails"){
+            var vc = segue.destination as! PlaceDetailsViewController
+            vc.placeIDReceived = self.placeIDForDetailsViewCall
+        } else if (segue.identifier == "loginToFindAGuideButtonToLoginPage"){
+            
+        }
+        
+    }
+    
 }
 
