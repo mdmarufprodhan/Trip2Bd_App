@@ -140,10 +140,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="114" height="69"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="iLQ-Yj-h7z">
-                                                    <rect key="frame" x="2" y="70" width="16" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Jml-RF-VxU">
                                                     <rect key="frame" x="2" y="87" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,8 +148,8 @@
                                                     <rect key="frame" x="58" y="88" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Farisa Benta Safir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nek-19-g2A">
-                                                    <rect key="frame" x="20" y="70" width="94" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nek-19-g2A">
+                                                    <rect key="frame" x="2" y="70" width="112" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -173,16 +169,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctv-Nc-bVi">
+                                                    <rect key="frame" x="46" y="0.0" width="68" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <connections>
                                             <outlet property="topCardDollarIconImageView" destination="ivT-V1-8Ub" id="iIf-tQ-AzZ"/>
-                                            <outlet property="topCardGuideImageView" destination="iLQ-Yj-h7z" id="VsS-bR-xAg"/>
-                                            <outlet property="topCardGuideNameLabel" destination="Nek-19-g2A" id="Kp8-RL-loi"/>
                                             <outlet property="topCardImageView" destination="DYb-J7-IQI" id="CP1-i0-Fsi"/>
                                             <outlet property="topCardPayPerDayLabel" destination="PWE-o5-hZE" id="ZGN-BU-n3m"/>
                                             <outlet property="topCardRatingsImageView" destination="Jml-RF-VxU" id="e4T-Ho-ybV"/>
                                             <outlet property="topCardRatingsLabel" destination="YMN-JM-0WJ" id="v2x-MT-fWb"/>
+                                            <outlet property="topCardServiceStatusLabel" destination="Ctv-Nc-bVi" id="EBR-nP-tTu"/>
+                                            <outlet property="topCardTitleLabel" destination="Nek-19-g2A" id="tdJ-Je-TNI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

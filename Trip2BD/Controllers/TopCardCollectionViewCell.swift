@@ -11,11 +11,11 @@ import UIKit
 class TopCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var topCardImageView: UIImageView!
-    @IBOutlet weak var topCardGuideImageView: UIImageView!
-    @IBOutlet weak var topCardGuideNameLabel: UILabel!
+    @IBOutlet weak var topCardTitleLabel: UILabel!
     @IBOutlet weak var topCardRatingsImageView: UIImageView!
     @IBOutlet weak var topCardRatingsLabel: UILabel!
     @IBOutlet weak var topCardDollarIconImageView: UIImageView!
     @IBOutlet weak var topCardPayPerDayLabel: UILabel!
+    @IBOutlet weak var topCardServiceStatusLabel: UILabel!
     
 }

@@ -69,7 +69,7 @@ class PlaceDetailsViewController: UIViewController {
     
     // calling place avg rating API
     func placeAvgRatingData(){
-        var ratingPlaceParameter = ["place_id" : placeIDReceived,
+        let ratingPlaceParameter = ["place_id" : placeIDReceived,
                                     "api_key" : API.API_key] as [String : Any]
         // calling avgRating API
         Alamofire.request(API.baseURL + "/places/avgPlaceRatingByID", method: .post, parameters: ratingPlaceParameter).validate().responseJSON{

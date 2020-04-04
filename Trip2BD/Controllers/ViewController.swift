@@ -33,6 +33,26 @@ struct Rating: Decodable{
     let avg_rating: Double
 }
 
+// for cards
+struct AllCardsAPIResponse: Decodable{
+    let success: Bool?
+    let data: [AllCardsData]?
+}
+
+struct AllCardsData: Decodable {
+    let id: Int
+    let guide_id: Int
+    let card_title: String
+    let card_description: String
+    //let price_per_hour: String
+    let price_per_day: Int
+    //let place_ids: String
+    let card_average_rating: Double
+    let service_status: Int
+    let card_status: Int
+    //let card_category_tags: String
+}
+
 // for guides
 struct AllGuidesAPIResponse: Decodable{
     let success: Bool?
@@ -81,14 +101,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //        UIImage(named: "sajek")!,
 //        UIImage(named: "coxsbazar")!,
 //        ]
-//    var topCardGuideImage: [UIImage] = [
-//        UIImage(named: "sajek")!,
-//        UIImage(named: "coxsbazar")!,
-//        ]
     var topCardID = [String]()
-    var topCardGuideName = [String]()
+    var topCardTitle = [String]()
     var topCardRatings = [String]()
     var topCardPayPerDay = [String]()
+    var topCardServiceStatus = [String]()
     
     // for top guide collection view
 //    var topGuideImage: [UIImage] = [
@@ -120,6 +137,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         self.getPlaceAPIData()
         self.getGuideAPIData()
+        self.getCardAPIData()
         
         self.view.addSubview(topPlaceCollectionView)
         self.view.addSubview(topCardCollectionView)
@@ -177,37 +195,38 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func getCardAPIData(){
-//        let allCardParameter = ["api_key" : API.API_key] as [String : Any]
-//
-//        // calling getAllCards API
-//        Alamofire.request(API.baseURL + "/cards/All", method: .post, parameters: allCardParameter).validate().responseJSON{
-//            response in
-//            //print(response)
-//            if((response.result.value) != nil){
-//                do{
-//                    let allGuides = try JSONDecoder().decode(AllGuidesAPIResponse.self, from: response.data!)
-//                    //print(allGuides)
-//                    for guide in allGuides.data!{
-//                        if guide.is_verified == 1{
-//                            self.topGuideName.append(String(guide.first_name + " " + guide.last_name))
-//                            self.topGuideID.append(String(guide.id))
-//                            self.topGuideRatings.append(String(guide.ratings))
-//                            if guide.is_available == 1{
-//                                self.topGuideAvailability.append("Available")
-//                            } else{
-//                                self.topGuideAvailability.append("Unavailable")
-//                            }
-//                        }
-//                    }
-//                    if self.topGuideName.count > 0{
-//                        self.topGuideCollectionView?.reloadData()
-//                    }
-//
-//                } catch{
-//                    print("We got an error to get Guide info!")
-//                }
-//            }
-//        }
+        let allCardParameter = ["api_key" : API.API_key] as [String : Any]
+
+        // calling getAllCards API
+        Alamofire.request(API.baseURL + "/cards/All", method: .post, parameters: allCardParameter).validate().responseJSON{
+            response in
+            //print(response)
+            if((response.result.value) != nil){
+                do{
+                    let allCards = try JSONDecoder().decode(AllCardsAPIResponse.self, from: response.data!)
+                    //print(allCards)
+                    for card in allCards.data!{
+                        if card.card_status == 1{
+                            self.topCardID.append(String(card.id))
+                            self.topCardTitle.append(String(card.card_title))
+                            self.topCardRatings.append(String(card.card_average_rating))
+                            self.topCardPayPerDay.append(String(card.price_per_day))
+                            if card.service_status == 1{
+                                self.topCardServiceStatus.append("On Service")
+                            } else{
+                                self.topCardServiceStatus.append("Available")
+                            }
+                        }
+                    }
+                    if self.topCardID.count > 0{
+                        self.topCardCollectionView?.reloadData()
+                    }
+
+                } catch{
+                    print("We got an error to get Card info!")
+                }
+            }
+        }
     }
     
     func getGuideAPIData(){
@@ -248,7 +267,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if collectionView == self.topPlaceCollectionView{
             return topPlaceName.count
         } else if collectionView == self.topCardCollectionView{
-            return topCardGuideName.count
+            return topCardID.count
         } else{
             return topGuideName.count
         }
@@ -277,10 +296,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else if collectionView == self.topCardCollectionView{
             let forTopCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: topCardCollectionViewIdentifier, for: indexPath) as! TopCardCollectionViewCell
             //forTopCardCell.topCardImageView.image = topCardImage[indexPath.item]
-            //forTopPlaceCell.topCardGuideImageView.image = topCardGuideImage[indexPath.item]
-            forTopCardCell.topCardGuideNameLabel.text = topCardGuideName[indexPath.item]
-            forTopCardCell.topCardGuideNameLabel.text = topCardRatings[indexPath.item]
-            forTopCardCell.topCardGuideNameLabel.text = topCardPayPerDay[indexPath.item]
+            forTopCardCell.topCardTitleLabel.text = topCardTitle[indexPath.item]
+            forTopCardCell.topCardRatingsLabel.text = topCardRatings[indexPath.item]
+            forTopCardCell.topCardPayPerDayLabel.text = topCardPayPerDay[indexPath.item]
+            forTopCardCell.topCardServiceStatusLabel.text = topCardServiceStatus[indexPath.item]
             
             // for cell ui
             forTopCardCell.layer.borderColor = UIColor.lightGray.cgColor
@@ -324,9 +343,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             placeIDForDetailsViewCall = topPlaceID[indexPath.item]
             self.performSegue(withIdentifier: "homeToPlaceDetails", sender: self)
         } else if collectionView == self.topCardCollectionView{
-            
+            print(topCardID[indexPath.item])
+            cardIDForDetailsViewCall = topCardID[indexPath.item]
         } else{
-            print(topGuideID[indexPath.item])        }
+            print(topGuideID[indexPath.item])
+            guideIDForDetailsViewCall = topGuideID[indexPath.item]
+        }
     }
     
     
