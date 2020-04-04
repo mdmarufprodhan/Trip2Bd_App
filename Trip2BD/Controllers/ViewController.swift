@@ -33,13 +33,37 @@ struct Rating: Decodable{
     let avg_rating: Double
 }
 
+// for guides
+struct AllGuidesAPIResponse: Decodable{
+    let success: Bool?
+    let data: [AllGuidesData]?
+}
+
+struct AllGuidesData: Decodable {
+    let id: Int
+    let first_name: String
+    let last_name: String
+    let image: String
+    let gender: String
+    let date_of_birth: String
+    let is_available: Int
+    let urgent_availability: Int
+    let ratings: Double
+    let is_verified: Int
+}
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var homeLoginButton: UIButton!
     @IBOutlet weak var topPlaceCollectionView: UICollectionView!
-    //@IBOutlet weak var topCardCollectionView: UICollectionView!
-    //@IBOutlet weak var topGuideCollectionView: UICollectionView!
+    @IBOutlet weak var topCardCollectionView: UICollectionView!
+    @IBOutlet weak var topGuideCollectionView: UICollectionView!
     
+    let topPlaceCollectionViewIdentifier = "TopPlaceCell"
+    let topCardCollectionViewIdentifier = "TopCardCell"
+    let topGuideCollectionViewIdentifier = "TopGuideCell"
+    
+    // for top place collection view
     var topPlaceName = [String]()
     var topPlaceID = [String]()
 //    var topPlaceImage: [UIImage] = [
@@ -51,7 +75,35 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //        UIImage(named: "coxsbazar")!,
 //        ]
     var topPlaceRating = [String]()
+    
+    // for top card collection view
+//    var topCardImage: [UIImage] = [
+//        UIImage(named: "sajek")!,
+//        UIImage(named: "coxsbazar")!,
+//        ]
+//    var topCardGuideImage: [UIImage] = [
+//        UIImage(named: "sajek")!,
+//        UIImage(named: "coxsbazar")!,
+//        ]
+    var topCardID = [String]()
+    var topCardGuideName = [String]()
+    var topCardRatings = [String]()
+    var topCardPayPerDay = [String]()
+    
+    // for top guide collection view
+//    var topGuideImage: [UIImage] = [
+//        UIImage(named: "sajek")!,
+//        UIImage(named: "coxsbazar")!,
+//        ]
+    var topGuideID = [String]()
+    var topGuideName = [String]()
+    var topGuideRatings = [String]()
+    var topGuideAvailability = [String]()
+    
+    // for cell click to detail page segue call
     var placeIDForDetailsViewCall = ""
+    var cardIDForDetailsViewCall = ""
+    var guideIDForDetailsViewCall = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,15 +111,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         homeLoginButton.layer.cornerRadius = 8
         
         topPlaceCollectionView.delegate = self
+        topCardCollectionView.delegate = self
+        topGuideCollectionView.delegate = self
+        
         topPlaceCollectionView.dataSource = self
-        
-        //topCardCollectionView.delegate = self
-        //topCardCollectionView.dataSource = self
-        
-        //topGuideCollectionView.delegate = self
-        //topGuideCollectionView.dataSource = self
+        topCardCollectionView.dataSource = self
+        topGuideCollectionView.dataSource = self
         
         self.getPlaceAPIData()
+        self.getGuideAPIData()
+        
+        self.view.addSubview(topPlaceCollectionView)
+        self.view.addSubview(topCardCollectionView)
+        self.view.addSubview(topGuideCollectionView)
         
     }
     
@@ -120,39 +176,157 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func placeDetailsSegueCall(){
+    func getCardAPIData(){
+//        let allCardParameter = ["api_key" : API.API_key] as [String : Any]
+//
+//        // calling getAllCards API
+//        Alamofire.request(API.baseURL + "/cards/All", method: .post, parameters: allCardParameter).validate().responseJSON{
+//            response in
+//            //print(response)
+//            if((response.result.value) != nil){
+//                do{
+//                    let allGuides = try JSONDecoder().decode(AllGuidesAPIResponse.self, from: response.data!)
+//                    //print(allGuides)
+//                    for guide in allGuides.data!{
+//                        if guide.is_verified == 1{
+//                            self.topGuideName.append(String(guide.first_name + " " + guide.last_name))
+//                            self.topGuideID.append(String(guide.id))
+//                            self.topGuideRatings.append(String(guide.ratings))
+//                            if guide.is_available == 1{
+//                                self.topGuideAvailability.append("Available")
+//                            } else{
+//                                self.topGuideAvailability.append("Unavailable")
+//                            }
+//                        }
+//                    }
+//                    if self.topGuideName.count > 0{
+//                        self.topGuideCollectionView?.reloadData()
+//                    }
+//
+//                } catch{
+//                    print("We got an error to get Guide info!")
+//                }
+//            }
+//        }
+    }
+    
+    func getGuideAPIData(){
+        let allGuideParameter = ["api_key" : API.API_key] as [String : Any]
         
+        // calling getAllGuides API
+        Alamofire.request(API.baseURL + "/guides/list", method: .post, parameters: allGuideParameter).validate().responseJSON{
+            response in
+            //print(response)
+            if((response.result.value) != nil){
+                do{
+                    let allGuides = try JSONDecoder().decode(AllGuidesAPIResponse.self, from: response.data!)
+                    //print(allGuides)
+                    for guide in allGuides.data!{
+                        if guide.is_verified == 1{
+                            self.topGuideName.append(String(guide.first_name + " " + guide.last_name))
+                            self.topGuideID.append(String(guide.id))
+                            self.topGuideRatings.append(String(guide.ratings))
+                            if guide.is_available == 1{
+                                self.topGuideAvailability.append("Available")
+                            } else{
+                                self.topGuideAvailability.append("Unavailable")
+                            }
+                        }
+                    }
+                    if self.topGuideName.count > 0{
+                        self.topGuideCollectionView?.reloadData()
+                    }
+                    
+                } catch{
+                    print("We got an error to get Guide info!")
+                }
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return topPlaceName.count
+        if collectionView == self.topPlaceCollectionView{
+            return topPlaceName.count
+        } else if collectionView == self.topCardCollectionView{
+            return topCardGuideName.count
+        } else{
+            return topGuideName.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let forTopPlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopPlaceCell", for: indexPath) as! TopPlaceCollectionViewCell
-        forTopPlaceCell.topPlaceTitleLabel.text = topPlaceName[indexPath.item]
-        //forTopPlaceCell.topPlaceImageView.image = topPlaceImage[indexPath.item]
-        forTopPlaceCell.topPlaceRatingsLabel.text = topPlaceRating[indexPath.item]
-        //
-        forTopPlaceCell.layer.borderColor = UIColor.lightGray.cgColor
-        forTopPlaceCell.layer.borderWidth = 0.5
-        //forTopPlaceCell.layer.
-        //forTopPlaceCell.layer.cornerRadius = 5
-        forTopPlaceCell.layer.backgroundColor = UIColor.white.cgColor
-        forTopPlaceCell.layer.shadowColor = UIColor.lightGray.cgColor
-        forTopPlaceCell.layer.shadowOffset = CGSize(width: 2.0, height: 4.0)
-        forTopPlaceCell.layer.shadowRadius = 2.0
-        forTopPlaceCell.layer.shadowOpacity = 0.5
-        forTopPlaceCell.layer.masksToBounds = false
-        
-        return forTopPlaceCell
-        
+        if collectionView == self.topPlaceCollectionView{
+            let forTopPlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: topPlaceCollectionViewIdentifier, for: indexPath) as! TopPlaceCollectionViewCell
+            forTopPlaceCell.topPlaceTitleLabel.text = topPlaceName[indexPath.item]
+            //forTopPlaceCell.topPlaceImageView.image = topPlaceImage[indexPath.item]
+            forTopPlaceCell.topPlaceRatingsLabel.text = topPlaceRating[indexPath.item]
+            
+            // for cell ui
+            forTopPlaceCell.layer.borderColor = UIColor.lightGray.cgColor
+            forTopPlaceCell.layer.borderWidth = 0.5
+            //forTopPlaceCell.layer.
+            //forTopPlaceCell.layer.cornerRadius = 5
+            forTopPlaceCell.layer.backgroundColor = UIColor.white.cgColor
+            forTopPlaceCell.layer.shadowColor = UIColor.lightGray.cgColor
+            forTopPlaceCell.layer.shadowOffset = CGSize(width: 2.0, height: 4.0)
+            forTopPlaceCell.layer.shadowRadius = 2.0
+            forTopPlaceCell.layer.shadowOpacity = 0.5
+            forTopPlaceCell.layer.masksToBounds = false
+            
+            return forTopPlaceCell
+        } else if collectionView == self.topCardCollectionView{
+            let forTopCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: topCardCollectionViewIdentifier, for: indexPath) as! TopCardCollectionViewCell
+            //forTopCardCell.topCardImageView.image = topCardImage[indexPath.item]
+            //forTopPlaceCell.topCardGuideImageView.image = topCardGuideImage[indexPath.item]
+            forTopCardCell.topCardGuideNameLabel.text = topCardGuideName[indexPath.item]
+            forTopCardCell.topCardGuideNameLabel.text = topCardRatings[indexPath.item]
+            forTopCardCell.topCardGuideNameLabel.text = topCardPayPerDay[indexPath.item]
+            
+            // for cell ui
+            forTopCardCell.layer.borderColor = UIColor.lightGray.cgColor
+            forTopCardCell.layer.borderWidth = 0.5
+            //forTopPlaceCell.layer.
+            //forTopPlaceCell.layer.cornerRadius = 5
+            forTopCardCell.layer.backgroundColor = UIColor.white.cgColor
+            forTopCardCell.layer.shadowColor = UIColor.lightGray.cgColor
+            forTopCardCell.layer.shadowOffset = CGSize(width: 2.0, height: 4.0)
+            forTopCardCell.layer.shadowRadius = 2.0
+            forTopCardCell.layer.shadowOpacity = 0.5
+            forTopCardCell.layer.masksToBounds = false
+            
+            return forTopCardCell
+        } else{
+            let forTopGuideCell = collectionView.dequeueReusableCell(withReuseIdentifier: topGuideCollectionViewIdentifier, for: indexPath) as! TopGuideCollectionViewCell
+            //forTopGuideCell.topGuideImageView.image = topGuideImage[indexPath.item]
+            forTopGuideCell.topGuideNameLabel.text = topGuideName[indexPath.item]
+            forTopGuideCell.topGuideRatingLabel.text = topGuideRatings[indexPath.item]
+            forTopGuideCell.topGuideProfileActivityLabel.text = topGuideAvailability[indexPath.item]
+            
+            // for cell ui
+            forTopGuideCell.layer.borderColor = UIColor.lightGray.cgColor
+            forTopGuideCell.layer.borderWidth = 0.5
+            //forTopPlaceCell.layer.
+            //forTopPlaceCell.layer.cornerRadius = 5
+            forTopGuideCell.layer.backgroundColor = UIColor.white.cgColor
+            forTopGuideCell.layer.shadowColor = UIColor.lightGray.cgColor
+            forTopGuideCell.layer.shadowOffset = CGSize(width: 2.0, height: 4.0)
+            forTopGuideCell.layer.shadowRadius = 2.0
+            forTopGuideCell.layer.shadowOpacity = 0.5
+            forTopGuideCell.layer.masksToBounds = false
+            
+            return forTopGuideCell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(topPlaceID[indexPath.item])
-        placeIDForDetailsViewCall = topPlaceID[indexPath.item]
-        self.performSegue(withIdentifier: "homeToPlaceDetails", sender: self)
+        if collectionView == self.topPlaceCollectionView{
+            print(topPlaceID[indexPath.item])
+            placeIDForDetailsViewCall = topPlaceID[indexPath.item]
+            self.performSegue(withIdentifier: "homeToPlaceDetails", sender: self)
+        } else if collectionView == self.topCardCollectionView{
+            
+        } else{
+            print(topGuideID[indexPath.item])        }
     }
     
     
