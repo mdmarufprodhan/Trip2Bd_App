@@ -151,7 +151,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         Alamofire.request(API.baseURL + "/places/list", method: .post, parameters: placeParameter).validate().responseJSON {
             response in
-            
+            //print("Place: ")
+            //print(response)
             if ((response.result.value) != nil){
                 do{
                     let allPlaces = try JSONDecoder().decode(ApiResponse.self, from: response.data!)
@@ -165,6 +166,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         // calling avgRating API
                         Alamofire.request(API.baseURL + "/places/avgPlaceRatingByID", method: .post, parameters: ratingPlaceParameter).validate().responseJSON{
                             response in
+                            //print("AvgRating: ")
+                            //print(response)
                             if((response.result.value) != nil){
                                 do{
                                     let avgRatingByPlaceID = try JSONDecoder().decode(AvgRating.self, from: response.data!)
@@ -176,11 +179,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                     }
                                     if self.topPlaceRating.count > 0{
                                         self.topPlaceCollectionView?.reloadData()
-//                                        print("Reload 2")
-//                                        print(self.topPlaceName)
-//                                        print(self.topPlaceRating)
                                     }
-                                    
                                 } catch{
                                     print("We got an error to get avgRating!")
                                 }
@@ -200,6 +199,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // calling getAllCards API
         Alamofire.request(API.baseURL + "/cards/All", method: .post, parameters: allCardParameter).validate().responseJSON{
             response in
+            //print("Card: ")
             //print(response)
             if((response.result.value) != nil){
                 do{
@@ -221,7 +221,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     if self.topCardID.count > 0{
                         self.topCardCollectionView?.reloadData()
                     }
-
                 } catch{
                     print("We got an error to get Card info!")
                 }
@@ -235,6 +234,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // calling getAllGuides API
         Alamofire.request(API.baseURL + "/guides/list", method: .post, parameters: allGuideParameter).validate().responseJSON{
             response in
+            //print("Guide: ")
             //print(response)
             if((response.result.value) != nil){
                 do{
@@ -255,7 +255,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     if self.topGuideName.count > 0{
                         self.topGuideCollectionView?.reloadData()
                     }
-                    
                 } catch{
                     print("We got an error to get Guide info!")
                 }
@@ -264,13 +263,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var counter = 0
         if collectionView == self.topPlaceCollectionView{
-            return topPlaceName.count
+            counter = self.topPlaceName.count
         } else if collectionView == self.topCardCollectionView{
-            return topCardID.count
+            counter = self.topCardID.count
         } else{
-            return topGuideName.count
+            counter = self.topGuideName.count
         }
+        return counter
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -16,6 +16,9 @@
 		4E5B2623242F8292004A452E /* TopCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B2622242F8292004A452E /* TopCardCollectionViewCell.swift */; };
 		4E62E382242DF249002788F7 /* RegistrationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E62E381242DF249002788F7 /* RegistrationPageViewController.swift */; };
 		4E7D16C82438BEC6000B4E78 /* TopGuideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D16C72438BEC6000B4E78 /* TopGuideCollectionViewCell.swift */; };
+		4E9E9A72243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */; };
+		4E9E9A74243A0CBE0099E77E /* LTopCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A73243A0CBE0099E77E /* LTopCardCollectionViewCell.swift */; };
+		4E9E9A76243A0CD60099E77E /* LTopGuideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A75243A0CD60099E77E /* LTopGuideCollectionViewCell.swift */; };
 		4EF76D4B24068D22002C3C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF76D4A24068D22002C3C3B /* AppDelegate.swift */; };
 		4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF76D4C24068D22002C3C3B /* ViewController.swift */; };
 		4EF76D5024068D22002C3C3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF76D4E24068D22002C3C3B /* Main.storyboard */; };
@@ -55,6 +58,9 @@
 		4E5B2622242F8292004A452E /* TopCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E62E381242DF249002788F7 /* RegistrationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageViewController.swift; sourceTree = "<group>"; };
 		4E7D16C72438BEC6000B4E78 /* TopGuideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGuideCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E9E9A73243A0CBE0099E77E /* LTopCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E9E9A75243A0CD60099E77E /* LTopGuideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopGuideCollectionViewCell.swift; sourceTree = "<group>"; };
 		4EF76D4724068D22002C3C3B /* Trip2BD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trip2BD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF76D4A24068D22002C3C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EF76D4C24068D22002C3C3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,8 +122,11 @@
 				4E1A3585242E4E0F0015D90D /* HomePageAfterLoginViewController.swift */,
 				4E5B2620242F8259004A452E /* TopPlaceCollectionViewCell.swift */,
 				4E5B2622242F8292004A452E /* TopCardCollectionViewCell.swift */,
-				4E35E364243077A8004B7E0D /* PlaceDetailsViewController.swift */,
 				4E7D16C72438BEC6000B4E78 /* TopGuideCollectionViewCell.swift */,
+				4E35E364243077A8004B7E0D /* PlaceDetailsViewController.swift */,
+				4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */,
+				4E9E9A73243A0CBE0099E77E /* LTopCardCollectionViewCell.swift */,
+				4E9E9A75243A0CD60099E77E /* LTopGuideCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -380,13 +389,16 @@
 			files = (
 				4E5B2623242F8292004A452E /* TopCardCollectionViewCell.swift in Sources */,
 				4E62E382242DF249002788F7 /* RegistrationPageViewController.swift in Sources */,
+				4E9E9A72243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift in Sources */,
 				4E1A3586242E4E100015D90D /* HomePageAfterLoginViewController.swift in Sources */,
 				4E24990B2421FB9700C319B8 /* LoginViewController.swift in Sources */,
 				4EF76D5324068D22002C3C3B /* Trip2BD.xcdatamodeld in Sources */,
 				4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */,
 				4E7D16C82438BEC6000B4E78 /* TopGuideCollectionViewCell.swift in Sources */,
+				4E9E9A74243A0CBE0099E77E /* LTopCardCollectionViewCell.swift in Sources */,
 				4E35E365243077A8004B7E0D /* PlaceDetailsViewController.swift in Sources */,
 				4E24990F2421FC6C00C319B8 /* TouristLoginModel.swift in Sources */,
+				4E9E9A76243A0CD60099E77E /* LTopGuideCollectionViewCell.swift in Sources */,
 				4E24991224222B5300C319B8 /* API.swift in Sources */,
 				4EF76D4B24068D22002C3C3B /* AppDelegate.swift in Sources */,
 				4E5B2621242F8259004A452E /* TopPlaceCollectionViewCell.swift in Sources */,
