@@ -78,6 +78,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     @IBOutlet weak var lTopCardCollectionView: UICollectionView!
     @IBOutlet weak var lTopGuideCollectionView: UICollectionView!
     
+    var loggedInUserIDReceived = ""
     
     let lTopPlaceCollectionViewIdentifier = "LTopPlaceCell"
     let lTopCardCollectionViewIdentifier = "LTopCardCell"
@@ -140,6 +141,9 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
         self.view.addSubview(lTopPlaceCollectionView)
         self.view.addSubview(lTopCardCollectionView)
         self.view.addSubview(lTopGuideCollectionView)
+        
+        var fifthTab = self.tabBarController?.viewControllers![4] as! LUserProfileViewController
+        fifthTab.loggedInUserIDReceived = self.loggedInUserIDReceived
         
         // Do any additional setup after loading the view.
     }
@@ -237,7 +241,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
             if((response.result.value) != nil){
                 do{
                     let allGuides = try JSONDecoder().decode(LAllGuidesAPIResponse.self, from: response.data!)
-                    print(allGuides)
+                    //print(allGuides)
                     for guide in allGuides.data!{
                         if guide.is_verified == 1{
                             self.lTopGuideName.append(String(guide.first_name + " " + guide.last_name))
@@ -352,7 +356,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "homeToPlaceDetails"){
-            var vc = segue.destination as! PlaceDetailsViewController
+            let vc = segue.destination as! PlaceDetailsViewController
             vc.placeIDReceived = self.placeIDForDetailsViewCall
         } else if (segue.identifier == "loginToFindAGuideButtonToLoginPage"){
             

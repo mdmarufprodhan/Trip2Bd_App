@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     
     var check = false
+    // to save logged in user id
+    var loggedInUserID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,14 +55,14 @@ class LoginViewController: UIViewController {
                     response in
                     
                     //Showing response in log
-                    print(response)
+                    //print(response)
                     
                     if let result = response.result.value {
                         let JSON = result as! NSDictionary
-                        print("Success = ")
-                        print(JSON["success"]!)
+//                        print("Success = ")
+//                        print(JSON["success"]!)
                         self.check = JSON["success"] as! Bool
-                        print(self.check)
+//                        print(self.check)
                     }
                     
                     if(!self.check){
@@ -70,17 +72,15 @@ class LoginViewController: UIViewController {
                             let loginResponseData = try JSONDecoder().decode(Tourist.self, from: response.data!)
                             let successMesage = loginResponseData.success
                             let id = loginResponseData.data[0].id
-                            print(id!)
+                            self.loggedInUserID = String(id!)
+//                            print(id!)
+//                            print(self.loggedInUserID)
                             
-                            print(successMesage as Any)
+//                            print(successMesage as Any)
                             
                             if(successMesage == true){
-                                print("I am there!")
-                                
                                 self.dismiss(animated: true, completion: nil)
                                 self.performSegue(withIdentifier: "loginToHomePage", sender: self)
-                                
-                                print("Passed there")
                             }
                         } catch{
                             print("Error while parsing JSON")
@@ -107,6 +107,18 @@ class LoginViewController: UIViewController {
         
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
+    }
+    
+    // to pass user id via segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "loginToHomePage"){
+            let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+            let destinationVC = tabCtrl.viewControllers![0] as! HomePageAfterLoginViewController
+            destinationVC.loggedInUserIDReceived = self.loggedInUserID
+        } else if (segue.identifier == "loginToFindAGuideButtonToLoginPage"){
+            
+        }
+        
     }
 
 }
