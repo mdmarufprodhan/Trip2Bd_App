@@ -344,7 +344,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
         if collectionView == self.lTopPlaceCollectionView{
             print(lTopPlaceID[indexPath.item])
             placeIDForDetailsViewCall = lTopPlaceID[indexPath.item]
-            //self.performSegue(withIdentifier: "homeToPlaceDetails", sender: self)
+            self.performSegue(withIdentifier: "afterLoginHomeToPlaceDetails", sender: self)
         } else if collectionView == self.lTopCardCollectionView{
             print(lTopCardID[indexPath.item])
             cardIDForDetailsViewCall = lTopCardID[indexPath.item]
@@ -355,9 +355,9 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "homeToPlaceDetails"){
-            let vc = segue.destination as! PlaceDetailsViewController
-            vc.placeIDReceived = self.placeIDForDetailsViewCall
+        if (segue.identifier == "afterLoginHomeToPlaceDetails"){
+            let vc = segue.destination as! LPlaceDetailsViewController
+            vc.lPlaceIDReceived = self.placeIDForDetailsViewCall
         } else if (segue.identifier == "loginToFindAGuideButtonToLoginPage"){
             
         }

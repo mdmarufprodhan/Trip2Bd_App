@@ -114,6 +114,7 @@ class LoginViewController: UIViewController {
         if (segue.identifier == "loginToHomePage"){
             let tabCtrl: UITabBarController = segue.destination as! UITabBarController
             let destinationVC = tabCtrl.viewControllers![0] as! HomePageAfterLoginViewController
+            //let destinationVC = segue.destination as! HomePageAfterLoginViewController
             destinationVC.loggedInUserIDReceived = self.loggedInUserID
         } else if (segue.identifier == "loginToFindAGuideButtonToLoginPage"){
             
