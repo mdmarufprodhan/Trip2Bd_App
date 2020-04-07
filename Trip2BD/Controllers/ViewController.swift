@@ -102,6 +102,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //        UIImage(named: "coxsbazar")!,
 //        ]
     var topCardID = [String]()
+    var topCardGuideID = [String]()
     var topCardTitle = [String]()
     var topCardRatings = [String]()
     var topCardPayPerDay = [String]()
@@ -119,7 +120,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // for cell click to detail page segue call
     var placeIDForDetailsViewCall = ""
+    
     var cardIDForDetailsViewCall = ""
+    var cardGuideIDForDetailsViewCall = ""
+    
     var guideIDForDetailsViewCall = ""
     
     override func viewDidLoad() {
@@ -210,6 +214,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             self.topCardID.append(String(card.id))
                             self.topCardTitle.append(String(card.card_title))
                             self.topCardRatings.append(String(card.card_average_rating))
+                            self.topCardGuideID.append(String(card.guide_id))
                             self.topCardPayPerDay.append(String(card.price_per_day))
                             if card.service_status == 1{
                                 self.topCardServiceStatus.append("On Service")
@@ -346,7 +351,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else if collectionView == self.topCardCollectionView{
             print(topCardID[indexPath.item])
             cardIDForDetailsViewCall = topCardID[indexPath.item]
-        } else{
+            cardGuideIDForDetailsViewCall = topCardGuideID[indexPath.item]
+            self.performSegue(withIdentifier: "homeToCardDetails", sender: self)
+        } else if collectionView == self.topGuideCollectionView{
             print(topGuideID[indexPath.item])
             guideIDForDetailsViewCall = topGuideID[indexPath.item]
         }
@@ -359,10 +366,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "homeToPlaceDetails"){
-            var vc = segue.destination as! PlaceDetailsViewController
+            let vc = segue.destination as! PlaceDetailsViewController
             vc.placeIDReceived = self.placeIDForDetailsViewCall
-        } else if (segue.identifier == "loginToFindAGuideButtonToLoginPage"){
-            
+        } else if (segue.identifier == "homeToCardDetails"){
+            let vc = segue.destination as! CardDetailsViewController
+            vc.cardIDReceived = self.cardIDForDetailsViewCall
+            vc.cardGuideID = self.cardGuideIDForDetailsViewCall
+        } else if (segue.identifier == ""){
+            let vc = segue.destination as! CardDetailsViewController
+            vc.cardIDReceived = self.guideIDForDetailsViewCall
         }
         
     }

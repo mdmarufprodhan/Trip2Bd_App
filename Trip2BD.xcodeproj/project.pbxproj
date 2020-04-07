@@ -21,6 +21,7 @@
 		4E9E9A72243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */; };
 		4E9E9A74243A0CBE0099E77E /* LTopCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A73243A0CBE0099E77E /* LTopCardCollectionViewCell.swift */; };
 		4E9E9A76243A0CD60099E77E /* LTopGuideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A75243A0CD60099E77E /* LTopGuideCollectionViewCell.swift */; };
+		4EEBFCCD243B622D00E0021E /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEBFCCC243B622D00E0021E /* CardDetailsViewController.swift */; };
 		4EF76D4B24068D22002C3C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF76D4A24068D22002C3C3B /* AppDelegate.swift */; };
 		4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF76D4C24068D22002C3C3B /* ViewController.swift */; };
 		4EF76D5024068D22002C3C3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF76D4E24068D22002C3C3B /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E9E9A73243A0CBE0099E77E /* LTopCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E9E9A75243A0CD60099E77E /* LTopGuideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopGuideCollectionViewCell.swift; sourceTree = "<group>"; };
+		4EEBFCCC243B622D00E0021E /* CardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		4EF76D4724068D22002C3C3B /* Trip2BD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trip2BD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF76D4A24068D22002C3C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EF76D4C24068D22002C3C3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				4E9E9A75243A0CD60099E77E /* LTopGuideCollectionViewCell.swift */,
 				4E3ECD0C243A86F3007B1200 /* LUserProfileViewController.swift */,
 				4E3ECD0E243AC0C8007B1200 /* LPlaceDetailsViewController.swift */,
+				4EEBFCCC243B622D00E0021E /* CardDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5B2623242F8292004A452E /* TopCardCollectionViewCell.swift in Sources */,
+				4EEBFCCD243B622D00E0021E /* CardDetailsViewController.swift in Sources */,
 				4E62E382242DF249002788F7 /* RegistrationPageViewController.swift in Sources */,
 				4E9E9A72243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift in Sources */,
 				4E1A3586242E4E100015D90D /* HomePageAfterLoginViewController.swift in Sources */,
