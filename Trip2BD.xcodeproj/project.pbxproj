@@ -21,6 +21,7 @@
 		4E9E9A72243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */; };
 		4E9E9A74243A0CBE0099E77E /* LTopCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A73243A0CBE0099E77E /* LTopCardCollectionViewCell.swift */; };
 		4E9E9A76243A0CD60099E77E /* LTopGuideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A75243A0CD60099E77E /* LTopGuideCollectionViewCell.swift */; };
+		4EE50D38243CD01B002B4947 /* GuideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE50D37243CD01A002B4947 /* GuideDetailsViewController.swift */; };
 		4EEBFCCD243B622D00E0021E /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEBFCCC243B622D00E0021E /* CardDetailsViewController.swift */; };
 		4EF76D4B24068D22002C3C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF76D4A24068D22002C3C3B /* AppDelegate.swift */; };
 		4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF76D4C24068D22002C3C3B /* ViewController.swift */; };
@@ -66,6 +67,7 @@
 		4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E9E9A73243A0CBE0099E77E /* LTopCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E9E9A75243A0CD60099E77E /* LTopGuideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopGuideCollectionViewCell.swift; sourceTree = "<group>"; };
+		4EE50D37243CD01A002B4947 /* GuideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideDetailsViewController.swift; sourceTree = "<group>"; };
 		4EEBFCCC243B622D00E0021E /* CardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		4EF76D4724068D22002C3C3B /* Trip2BD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trip2BD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF76D4A24068D22002C3C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				4E3ECD0C243A86F3007B1200 /* LUserProfileViewController.swift */,
 				4E3ECD0E243AC0C8007B1200 /* LPlaceDetailsViewController.swift */,
 				4EEBFCCC243B622D00E0021E /* CardDetailsViewController.swift */,
+				4EE50D37243CD01A002B4947 /* GuideDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				4E24990B2421FB9700C319B8 /* LoginViewController.swift in Sources */,
 				4E3ECD0F243AC0C8007B1200 /* LPlaceDetailsViewController.swift in Sources */,
 				4EF76D5324068D22002C3C3B /* Trip2BD.xcdatamodeld in Sources */,
+				4EE50D38243CD01B002B4947 /* GuideDetailsViewController.swift in Sources */,
 				4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */,
 				4E7D16C82438BEC6000B4E78 /* TopGuideCollectionViewCell.swift in Sources */,
 				4E9E9A74243A0CBE0099E77E /* LTopCardCollectionViewCell.swift in Sources */,

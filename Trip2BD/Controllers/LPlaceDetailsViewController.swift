@@ -89,7 +89,7 @@ class LPlaceDetailsViewController: UIViewController {
                     let avgRatingByPlaceID = try JSONDecoder().decode(LPlaceAvgRating.self, from: response.data!)
                     //print(avgRatingByPlaceID)
                     for avgRatingOfPlace in avgRatingByPlaceID.data!{
-                        self.lPlaceAvgRatingLabel.text = String(avgRatingOfPlace.avg_rating)
+                        self.lPlaceAvgRatingLabel.text = String(Double(round(10*avgRatingOfPlace.avg_rating)/10))
                     }
                 } catch{
                     print("We got an error to get avgRating!")

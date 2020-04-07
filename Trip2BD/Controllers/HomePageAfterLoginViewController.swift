@@ -176,7 +176,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
                                     let avgRatingByPlaceID = try JSONDecoder().decode(LAvgRating.self, from: response.data!)
                                     //print(avgRatingByPlaceID)
                                     for avgRatingOfPlace in avgRatingByPlaceID.data!{
-                                        self.lTopPlaceRating.append(String(avgRatingOfPlace.avg_rating))
+                                        self.lTopPlaceRating.append(String(Double(round(10*avgRatingOfPlace.avg_rating)/10)))
                                         self.lTopPlaceName.append(place.name)
                                         self.lTopPlaceID.append(String(place.id))
                                     }
@@ -211,7 +211,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
                         if card.card_status == 1{
                             self.lTopCardID.append(String(card.id))
                             self.lTopCardTitle.append(String(card.card_title))
-                            self.lTopCardRatings.append(String(card.card_average_rating))
+                            self.lTopCardRatings.append(String(Double(round(10*card.card_average_rating)/10)))
                             self.lTopCardPayPerDay.append(String(card.price_per_day))
                             if card.service_status == 1{
                                 self.lTopCardServiceStatus.append("On Service")
@@ -246,7 +246,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
                         if guide.is_verified == 1{
                             self.lTopGuideName.append(String(guide.first_name + " " + guide.last_name))
                             self.lTopGuideID.append(String(guide.id))
-                            self.lTopGuideRatings.append(String(guide.ratings))
+                            self.lTopGuideRatings.append(String(Double(round(10*guide.ratings)/10)))
                             if guide.is_available == 1{
                                 self.lTopGuideAvailability.append("Available")
                             } else{

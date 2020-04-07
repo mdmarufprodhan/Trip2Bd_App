@@ -177,7 +177,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                     let avgRatingByPlaceID = try JSONDecoder().decode(AvgRating.self, from: response.data!)
                                     //print(avgRatingByPlaceID)
                                     for avgRatingOfPlace in avgRatingByPlaceID.data!{
-                                        self.topPlaceRating.append(String(avgRatingOfPlace.avg_rating))
+                                        self.topPlaceRating.append(String(Double(round(10*avgRatingOfPlace.avg_rating)/10)))
                                         self.topPlaceName.append(place.name)
                                         self.topPlaceID.append(String(place.id))
                                     }
@@ -213,7 +213,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         if card.card_status == 1{
                             self.topCardID.append(String(card.id))
                             self.topCardTitle.append(String(card.card_title))
-                            self.topCardRatings.append(String(card.card_average_rating))
+                            self.topCardRatings.append(String(Double(round(10*card.card_average_rating)/10)))
                             self.topCardGuideID.append(String(card.guide_id))
                             self.topCardPayPerDay.append(String(card.price_per_day))
                             if card.service_status == 1{
@@ -249,7 +249,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         if guide.is_verified == 1{
                             self.topGuideName.append(String(guide.first_name + " " + guide.last_name))
                             self.topGuideID.append(String(guide.id))
-                            self.topGuideRatings.append(String(guide.ratings))
+                            self.topGuideRatings.append(String(Double(round(10*guide.ratings)/10)))
                             if guide.is_available == 1{
                                 self.topGuideAvailability.append("Available")
                             } else{
@@ -356,6 +356,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else if collectionView == self.topGuideCollectionView{
             print(topGuideID[indexPath.item])
             guideIDForDetailsViewCall = topGuideID[indexPath.item]
+            self.performSegue(withIdentifier: "homeToGuideDetails", sender: self)
         }
     }
     
@@ -372,9 +373,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let vc = segue.destination as! CardDetailsViewController
             vc.cardIDReceived = self.cardIDForDetailsViewCall
             vc.cardGuideID = self.cardGuideIDForDetailsViewCall
-        } else if (segue.identifier == ""){
-            let vc = segue.destination as! CardDetailsViewController
-            vc.cardIDReceived = self.guideIDForDetailsViewCall
+        } else if (segue.identifier == "homeToGuideDetails"){
+            let vc = segue.destination as! GuideDetailsViewController
+            vc.guideIDReceived = self.guideIDForDetailsViewCall
         }
         
     }

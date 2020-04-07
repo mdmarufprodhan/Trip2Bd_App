@@ -66,7 +66,7 @@ class CardDetailsViewController: UIViewController {
                 do{
                     let cardDetails = try JSONDecoder().decode(CardAPIResponse.self, from: response.data!)
                     for card in cardDetails.data!{
-                        self.cardAvgRatingLabel.text = String(card.card_average_rating)
+                        self.cardAvgRatingLabel.text = String(Double(round(10*card.card_average_rating)/10))
                         self.cardDescriptionTextView.text = card.card_description
                         self.navigationItem.title = String(card.card_title)
                         self.cardPricePerDayLabel.text = String(card.price_per_day)
