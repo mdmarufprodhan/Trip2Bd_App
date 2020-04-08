@@ -16,6 +16,8 @@
 		4E3ECD0F243AC0C8007B1200 /* LPlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3ECD0E243AC0C8007B1200 /* LPlaceDetailsViewController.swift */; };
 		4E5B2621242F8259004A452E /* TopPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B2620242F8259004A452E /* TopPlaceCollectionViewCell.swift */; };
 		4E5B2623242F8292004A452E /* TopCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B2622242F8292004A452E /* TopCardCollectionViewCell.swift */; };
+		4E5EDDEF243DCD780007AA74 /* LCardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5EDDEE243DCD780007AA74 /* LCardDetailsViewController.swift */; };
+		4E5EDDF1243E24960007AA74 /* LGuideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5EDDF0243E24960007AA74 /* LGuideDetailsViewController.swift */; };
 		4E62E382242DF249002788F7 /* RegistrationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E62E381242DF249002788F7 /* RegistrationPageViewController.swift */; };
 		4E7D16C82438BEC6000B4E78 /* TopGuideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D16C72438BEC6000B4E78 /* TopGuideCollectionViewCell.swift */; };
 		4E9E9A72243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */; };
@@ -62,6 +64,8 @@
 		4E3ECD0E243AC0C8007B1200 /* LPlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPlaceDetailsViewController.swift; sourceTree = "<group>"; };
 		4E5B2620242F8259004A452E /* TopPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E5B2622242F8292004A452E /* TopCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E5EDDEE243DCD780007AA74 /* LCardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCardDetailsViewController.swift; sourceTree = "<group>"; };
+		4E5EDDF0243E24960007AA74 /* LGuideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGuideDetailsViewController.swift; sourceTree = "<group>"; };
 		4E62E381242DF249002788F7 /* RegistrationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageViewController.swift; sourceTree = "<group>"; };
 		4E7D16C72438BEC6000B4E78 /* TopGuideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGuideCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				4E3ECD0E243AC0C8007B1200 /* LPlaceDetailsViewController.swift */,
 				4EEBFCCC243B622D00E0021E /* CardDetailsViewController.swift */,
 				4EE50D37243CD01A002B4947 /* GuideDetailsViewController.swift */,
+				4E5EDDEE243DCD780007AA74 /* LCardDetailsViewController.swift */,
+				4E5EDDF0243E24960007AA74 /* LGuideDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E5EDDEF243DCD780007AA74 /* LCardDetailsViewController.swift in Sources */,
 				4E5B2623242F8292004A452E /* TopCardCollectionViewCell.swift in Sources */,
 				4EEBFCCD243B622D00E0021E /* CardDetailsViewController.swift in Sources */,
 				4E62E382242DF249002788F7 /* RegistrationPageViewController.swift in Sources */,
@@ -411,6 +418,7 @@
 				4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */,
 				4E7D16C82438BEC6000B4E78 /* TopGuideCollectionViewCell.swift in Sources */,
 				4E9E9A74243A0CBE0099E77E /* LTopCardCollectionViewCell.swift in Sources */,
+				4E5EDDF1243E24960007AA74 /* LGuideDetailsViewController.swift in Sources */,
 				4E35E365243077A8004B7E0D /* PlaceDetailsViewController.swift in Sources */,
 				4E24990F2421FC6C00C319B8 /* TouristLoginModel.swift in Sources */,
 				4E9E9A76243A0CD60099E77E /* LTopGuideCollectionViewCell.swift in Sources */,

@@ -104,6 +104,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     //        ]
     var lTopCardID = [String]()
     var lTopCardTitle = [String]()
+    var topCardGuideID = [String]()
     var lTopCardRatings = [String]()
     var lTopCardPayPerDay = [String]()
     var lTopCardServiceStatus = [String]()
@@ -120,7 +121,10 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     
     // for cell click to detail page segue call
     var placeIDForDetailsViewCall = ""
+    
     var cardIDForDetailsViewCall = ""
+    var cardGuideIDForDetailsViewCall = ""
+    
     var guideIDForDetailsViewCall = ""
     
     override func viewDidLoad() {
@@ -211,6 +215,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
                         if card.card_status == 1{
                             self.lTopCardID.append(String(card.id))
                             self.lTopCardTitle.append(String(card.card_title))
+                            self.topCardGuideID.append(String(card.guide_id))
                             self.lTopCardRatings.append(String(Double(round(10*card.card_average_rating)/10)))
                             self.lTopCardPayPerDay.append(String(card.price_per_day))
                             if card.service_status == 1{
@@ -348,9 +353,12 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
         } else if collectionView == self.lTopCardCollectionView{
             print(lTopCardID[indexPath.item])
             cardIDForDetailsViewCall = lTopCardID[indexPath.item]
-        } else{
+            cardGuideIDForDetailsViewCall = topCardGuideID[indexPath.item]
+            self.performSegue(withIdentifier: "afterLoginHomeToCardDetails", sender: self)
+        } else if collectionView == self.lTopGuideCollectionView{
             print(lTopGuideID[indexPath.item])
             guideIDForDetailsViewCall = lTopGuideID[indexPath.item]
+            self.performSegue(withIdentifier: "afterLoginHomeToGuideDetails", sender: self)
         }
     }
     
@@ -358,10 +366,15 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
         if (segue.identifier == "afterLoginHomeToPlaceDetails"){
             let vc = segue.destination as! LPlaceDetailsViewController
             vc.lPlaceIDReceived = self.placeIDForDetailsViewCall
-        } else if (segue.identifier == "loginToFindAGuideButtonToLoginPage"){
-            
+        } else if (segue.identifier == "afterLoginHomeToCardDetails"){
+            let vc = segue.destination as! LCardDetailsViewController
+            vc.lCardIDReceived = self.cardIDForDetailsViewCall
+            vc.lCardGuideID = self.cardGuideIDForDetailsViewCall
+            vc.lTouristID = self.loggedInUserIDReceived
+        } else if (segue.identifier == "afterLoginHomeToGuideDetails"){
+            let vc = segue.destination as! LGuideDetailsViewController
+            vc.lGuideIDReceived = self.guideIDForDetailsViewCall
         }
-        
     }
     
 
