@@ -106,12 +106,12 @@ class LCardDetailsViewController: UIViewController {
             
             Alamofire.request(API.baseURL + "/tourist/setTouristGuideRelation", method: .post, parameters: setGuideTouristRelationParameter).validate().responseJSON{
                 response in
-                print(response)
+                //print(response)
             }
         }))
         
         cardPurchaseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Handle Cancel Logic here")
+            //print("Handle Cancel Logic here")
         }))
         
         present(cardPurchaseAlert, animated: true, completion: nil)

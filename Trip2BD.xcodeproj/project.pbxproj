@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0FF7DA2444673100BB482C /* LNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0FF7D92444673100BB482C /* LNotificationViewController.swift */; };
+		4E0FF7DC24447F4600BB482C /* LNotificationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0FF7DB24447F4600BB482C /* LNotificationCollectionViewCell.swift */; };
 		4E1A3586242E4E100015D90D /* HomePageAfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A3585242E4E0F0015D90D /* HomePageAfterLoginViewController.swift */; };
 		4E24990B2421FB9700C319B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24990A2421FB9700C319B8 /* LoginViewController.swift */; };
 		4E24990F2421FC6C00C319B8 /* TouristLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24990E2421FC6C00C319B8 /* TouristLoginModel.swift */; };
@@ -55,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		4C1FB8EF0554FEB35CBE248D /* Pods-Trip2BD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trip2BD.release.xcconfig"; path = "Target Support Files/Pods-Trip2BD/Pods-Trip2BD.release.xcconfig"; sourceTree = "<group>"; };
+		4E0FF7D92444673100BB482C /* LNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LNotificationViewController.swift; sourceTree = "<group>"; };
+		4E0FF7DB24447F4600BB482C /* LNotificationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LNotificationCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E1A3585242E4E0F0015D90D /* HomePageAfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageAfterLoginViewController.swift; sourceTree = "<group>"; };
 		4E24990A2421FB9700C319B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4E24990E2421FC6C00C319B8 /* TouristLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristLoginModel.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				4EE50D37243CD01A002B4947 /* GuideDetailsViewController.swift */,
 				4E5EDDEE243DCD780007AA74 /* LCardDetailsViewController.swift */,
 				4E5EDDF0243E24960007AA74 /* LGuideDetailsViewController.swift */,
+				4E0FF7D92444673100BB482C /* LNotificationViewController.swift */,
+				4E0FF7DB24447F4600BB482C /* LNotificationCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				4E24990B2421FB9700C319B8 /* LoginViewController.swift in Sources */,
 				4E3ECD0F243AC0C8007B1200 /* LPlaceDetailsViewController.swift in Sources */,
 				4EF76D5324068D22002C3C3B /* Trip2BD.xcdatamodeld in Sources */,
+				4E0FF7DC24447F4600BB482C /* LNotificationCollectionViewCell.swift in Sources */,
 				4EE50D38243CD01B002B4947 /* GuideDetailsViewController.swift in Sources */,
 				4EF76D4D24068D22002C3C3B /* ViewController.swift in Sources */,
 				4E7D16C82438BEC6000B4E78 /* TopGuideCollectionViewCell.swift in Sources */,
@@ -421,6 +428,7 @@
 				4E5EDDF1243E24960007AA74 /* LGuideDetailsViewController.swift in Sources */,
 				4E35E365243077A8004B7E0D /* PlaceDetailsViewController.swift in Sources */,
 				4E24990F2421FC6C00C319B8 /* TouristLoginModel.swift in Sources */,
+				4E0FF7DA2444673100BB482C /* LNotificationViewController.swift in Sources */,
 				4E9E9A76243A0CD60099E77E /* LTopGuideCollectionViewCell.swift in Sources */,
 				4E3ECD0D243A86F3007B1200 /* LUserProfileViewController.swift in Sources */,
 				4E24991224222B5300C319B8 /* API.swift in Sources */,
