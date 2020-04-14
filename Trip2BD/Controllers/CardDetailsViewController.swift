@@ -79,7 +79,6 @@ class CardDetailsViewController: UIViewController {
                         }
 
                         self.cardDescriptionHeightConstrain.constant = self.cardDescriptionTextView.contentSize.height
-
                     }
                 } catch{
                     print("We got an error while fetching service_cards table data!")

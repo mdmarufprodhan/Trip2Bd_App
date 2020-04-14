@@ -15,5 +15,4 @@ class LNotificationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lRequestedLabel: UILabel!
     @IBOutlet weak var lDeclinedLabel: UILabel!
     @IBOutlet weak var lAcceptedLabel: UILabel!
-    
 }

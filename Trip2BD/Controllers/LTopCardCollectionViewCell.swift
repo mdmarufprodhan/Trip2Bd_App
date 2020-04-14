@@ -16,5 +16,4 @@ class LTopCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lTopCardDollarIconImageView: UIImageView!
     @IBOutlet weak var lTopCardPricePerDayLabel: UILabel!
     @IBOutlet weak var lTopCardStatusLabel: UILabel!
-    
 }

@@ -106,7 +106,6 @@ class LMyGuideViewController: UIViewController, UICollectionViewDelegate, UIColl
                 do{
                     let allMyGuide = try JSONDecoder().decode(LMyGuideAPIResponse.self, from: response.data!)
                     for myGuide in allMyGuide.data!{
-                        //                        print("Notification API")
                         if (myGuide.is_accepted == 1 && myGuide.is_complited == 0 && myGuide.is_cancelled_by_tourist == 0 && myGuide.is_cancelled_by_guide == 0){
                             self.lTouristGuideRelationID.append(String(myGuide.id))
                             self.lUpdatedAt.append(String(myGuide.updated_at))
@@ -114,7 +113,6 @@ class LMyGuideViewController: UIViewController, UICollectionViewDelegate, UIColl
                             
                             self.getCardByID(cardID: String(myGuide.card_id), guideID: String(myGuide.guide_id))
                         }
-                        //                        print("Notification API 2")
                     }
                 } catch{
                     print("We got an error to get Tourist Guide Relations info!")
@@ -160,7 +158,6 @@ class LMyGuideViewController: UIViewController, UICollectionViewDelegate, UIColl
                     for guide in allGuideData.data!{
                         self.lGuideName.append(String(guide.first_name + " " + guide.last_name))
                         self.lGuideRating.append(String(Double(round(10*guide.ratings)/10)))
-                        //                        print("Guide API")
                     }
                     if self.lGuideName.count > 0{
                         self.lMyGuideCollectionView?.reloadData()
@@ -173,8 +170,6 @@ class LMyGuideViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        print("Count")
-        //        print(lGuideName.count)
         return lGuideName.count
     }
     

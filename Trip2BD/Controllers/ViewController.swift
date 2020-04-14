@@ -345,16 +345,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.topPlaceCollectionView{
-            print(topPlaceID[indexPath.item])
+            //print(topPlaceID[indexPath.item])
             placeIDForDetailsViewCall = topPlaceID[indexPath.item]
             self.performSegue(withIdentifier: "homeToPlaceDetails", sender: self)
         } else if collectionView == self.topCardCollectionView{
-            print(topCardID[indexPath.item])
+            //print(topCardID[indexPath.item])
             cardIDForDetailsViewCall = topCardID[indexPath.item]
             cardGuideIDForDetailsViewCall = topCardGuideID[indexPath.item]
             self.performSegue(withIdentifier: "homeToCardDetails", sender: self)
         } else if collectionView == self.topGuideCollectionView{
-            print(topGuideID[indexPath.item])
+            //print(topGuideID[indexPath.item])
             guideIDForDetailsViewCall = topGuideID[indexPath.item]
             self.performSegue(withIdentifier: "homeToGuideDetails", sender: self)
         }

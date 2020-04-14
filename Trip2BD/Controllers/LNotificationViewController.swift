@@ -122,13 +122,7 @@ class LNotificationViewController: UIViewController, UICollectionViewDelegate, U
                         }
                         
                         self.getCardByID(cardID: String(notification.card_id), guideID: String(notification.guide_id))
-//                        self.getGuideByID(guideID: String(notification.guide_id))
-                        
-//                        print("Notification API 2")
                     }
-//                    if self.lTouristGuideRelationID.count > 0{
-//                        self.lNotificationCollectionView?.reloadData()
-//                    }
                 } catch{
                     print("We got an error to get Tourist Guide Relations info!")
                 }
@@ -150,13 +144,8 @@ class LNotificationViewController: UIViewController, UICollectionViewDelegate, U
                     for card in allCardData.data!{
                         self.lCardTitle.append(String(card.card_title))
                         self.lCardPricePerDay.append(String(card.price_per_day))
-//                        print("Card API")
-//                        print("Calling guide")
                         self.getGuideByID(guideID: guideID)
                     }
-//                    if self.lCardTitle.count > 0{
-//                        self.lNotificationCollectionView?.reloadData()
-//                    }
                 } catch{
                     print("We got an error to get Card info!")
                 }
@@ -177,7 +166,6 @@ class LNotificationViewController: UIViewController, UICollectionViewDelegate, U
                     let allGuideData = try JSONDecoder().decode(LGuideByIDAPIResponse.self, from: response.data!)
                     for guide in allGuideData.data!{
                         self.lGuideName.append(String(guide.first_name + " " + guide.last_name))
-//                        print("Guide API")
                     }
                     if self.lGuideName.count > 0{
                         self.lNotificationCollectionView?.reloadData()
@@ -190,8 +178,6 @@ class LNotificationViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("Count")
-//        print(lGuideName.count)
         return lGuideName.count
     }
     

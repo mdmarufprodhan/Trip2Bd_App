@@ -14,6 +14,4 @@ class TopPlaceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var topPlaceTitleLabel: UILabel!
     @IBOutlet weak var topPlaceRatingsIcon: UIImageView!
     @IBOutlet weak var topPlaceRatingsLabel: UILabel!
-    
-    
 }

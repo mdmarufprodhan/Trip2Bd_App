@@ -32,7 +32,6 @@ struct MyGuideCardDetailsByIDData: Decodable {
 }
 
 class LGuideCardsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
     @IBOutlet weak var lGuideCardsCollectionView: UICollectionView!
     
     var lCardTitle = [String]()
@@ -75,7 +74,6 @@ class LGuideCardsViewController: UIViewController, UICollectionViewDelegate, UIC
                         self.lCardServiceStatus.append(Int(card.service_status))
                     }
                     if self.lCardTitle.count > 0{
-                        
                         self.lGuideCardsCollectionView?.reloadData()
                     }
                 } catch{

@@ -68,7 +68,6 @@ class LPlaceDetailsViewController: UIViewController {
                         self.lPlaceTitleLabel.text = String(place.name)
                         
                         self.lPlaceDescriptionHeightConstrains.constant = self.lPlaceDescriptionTextView.contentSize.height
-                        
                     }
                 } catch{
                     print("We got an error while fetching places table data!")

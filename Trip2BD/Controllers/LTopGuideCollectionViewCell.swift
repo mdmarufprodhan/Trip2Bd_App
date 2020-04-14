@@ -14,5 +14,4 @@ class LTopGuideCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lTopGuideRatingIconImageView: UIImageView!
     @IBOutlet weak var lTopGuideRatingLabel: UILabel!
     @IBOutlet weak var lTopGuideAvailabilityLabel: UILabel!
-    
 }

@@ -15,5 +15,4 @@ class LMyGuideCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lMyGuideRatingIconImageView: UIImageView!
     @IBOutlet weak var lMyGuideRatingLabel: UILabel!
     @IBOutlet weak var lMyGuideTripStatusLabel: UILabel!
-    
 }
