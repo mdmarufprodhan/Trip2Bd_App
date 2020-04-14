@@ -2380,11 +2380,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldp-e4-ID4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldp-e4-ID4">
                                 <rect key="frame" x="16" y="271" width="343" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.83137254900000002" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Guide Cards">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="lGuideCardsButtonTapped:" destination="vOS-J7-7NV" eventType="touchUpInside" id="vR6-9N-T68"/>
@@ -2600,6 +2601,7 @@
                     </view>
                     <connections>
                         <outlet property="lGuideCardsCollectionView" destination="Ay9-hd-Et2" id="uhn-Xi-Oiq"/>
+                        <segue destination="lpV-YQ-G1a" kind="show" identifier="guideCardsToCardDetails" id="iG9-Fd-Rx2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6o-oE-ewY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2630,4 +2632,7 @@
         <image name="verifiedIcon" width="332" height="333"/>
         <image name="yellowStarIcon" width="14" height="14"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iG9-Fd-Rx2"/>
+    </inferredMetricsTieBreakers>
 </document>

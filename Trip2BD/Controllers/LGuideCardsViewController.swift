@@ -36,11 +36,14 @@ class LGuideCardsViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var lGuideCardsCollectionView: UICollectionView!
     
     var lCardTitle = [String]()
+    var lCardID = [String]()
     var lCardPricePerDay = [String]()
     var lCardRating = [String]()
     var lCardServiceStatus = [Int]()
     
     var lGuideID = ""
+    
+    var lCardIDForSegue = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +68,7 @@ class LGuideCardsViewController: UIViewController, UICollectionViewDelegate, UIC
                 do{
                     let allCardData = try JSONDecoder().decode(LMyGuideCardDetailsByIDAPIResponse.self, from: response.data!)
                     for card in allCardData.data!{
+                        self.lCardID.append(String(card.id))
                         self.lCardTitle.append(String(card.card_title))
                         self.lCardPricePerDay.append(String(card.price_per_day))
                         self.lCardRating.append(String(Double(round(10*card.card_average_rating)/10)))
@@ -119,6 +123,20 @@ class LGuideCardsViewController: UIViewController, UICollectionViewDelegate, UIC
         forlMyGuideCardCell.lGuideCardsActivityIconImageView.clipsToBounds = true
         
         return forlMyGuideCardCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.lGuideCardsCollectionView{
+            lCardIDForSegue = lCardID[indexPath.item]
+            self.performSegue(withIdentifier: "guideCardsToCardDetails", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "guideCardsToCardDetails"){
+            let vc = segue.destination as! LCardDetailsViewController
+            vc.lCardIDReceived = self.lCardIDForSegue
+        }
     }
     
     @IBAction func lBackButtonTapped(_ sender: Any) {
