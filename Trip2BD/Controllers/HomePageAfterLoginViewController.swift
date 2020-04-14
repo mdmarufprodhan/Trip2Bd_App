@@ -146,11 +146,14 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
         self.view.addSubview(lTopCardCollectionView)
         self.view.addSubview(lTopGuideCollectionView)
         
-        var fourththTab = self.tabBarController?.viewControllers![3] as! LNotificationViewController
-        fourththTab.loggedInUserIDReceived = self.loggedInUserIDReceived
+        var secondTab = self.tabBarController?.viewControllers![1] as! LMyGuideViewController
+        secondTab.loggedInUserIDReceived = self.loggedInUserIDReceived
         
-        var fifthTab = self.tabBarController?.viewControllers![4] as! LUserProfileViewController
-        fifthTab.loggedInUserIDReceived = self.loggedInUserIDReceived
+        var thirdTab = self.tabBarController?.viewControllers![2] as! LNotificationViewController
+        thirdTab.loggedInUserIDReceived = self.loggedInUserIDReceived
+        
+        var fourthTab = self.tabBarController?.viewControllers![3] as! LUserProfileViewController
+        fourthTab.loggedInUserIDReceived = self.loggedInUserIDReceived
         
         // Do any additional setup after loading the view.
     }
