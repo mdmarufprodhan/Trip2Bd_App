@@ -77,6 +77,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     @IBOutlet weak var lTopPlaceCollectionView: UICollectionView!
     @IBOutlet weak var lTopCardCollectionView: UICollectionView!
     @IBOutlet weak var lTopGuideCollectionView: UICollectionView!
+    @IBOutlet weak var homeSOSButton: UIButton!
     
     var loggedInUserIDReceived = ""
     
@@ -129,6 +130,9 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // for round sos button
+        homeSOSButton.layer.cornerRadius = 0.5 * homeSOSButton.bounds.size.width
 
         lTopPlaceCollectionView.delegate = self
         lTopCardCollectionView.delegate = self
@@ -383,5 +387,30 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
         }
     }
     
-
+    @IBAction func sosButtonTapped(_ sender: Any) {
+        let sosButtonAlert = UIAlertController(title: "Alert!", message: "You are about to call helpline of Bangladesh Police (999). You can get help from Police, Ambulance or Fire service. Press Call to proceed.", preferredStyle: UIAlertController.Style.alert)
+        
+        sosButtonAlert.addAction(UIAlertAction(title: "Call", style: .default, handler: { (action: UIAlertAction!) in
+            if let phoneCallURL = URL(string: "telprompt://999") {
+                
+                let application:UIApplication = UIApplication.shared
+                if (application.canOpenURL(phoneCallURL)) {
+                    if #available(iOS 10.0, *) {
+                        application.open(phoneCallURL, options: [:], completionHandler: nil)
+                    } else {
+                        // Fallback on earlier versions
+                        application.openURL(phoneCallURL as URL)
+                        
+                    }
+                }
+            }
+        }))
+        
+        sosButtonAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            //print("Handle Cancel Logic here")
+        }))
+        
+        present(sosButtonAlert, animated: true, completion: nil)
+    }
+    
 }
