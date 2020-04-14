@@ -71,10 +71,18 @@ class LGuideDetailsViewController: UIViewController {
     }
     
     @IBAction func lGuideCardsButtonTapped(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "guideDetailsToGuideCards", sender: self)
     }
 
     @IBAction func lHomeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "guideDetailsToGuideCards"){
+            let vc = segue.destination as! LGuideCardsViewController
+            vc.lGuideID = self.lGuideIDReceived
+        }
+    }
+    
 }

@@ -357,16 +357,16 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.lTopPlaceCollectionView{
-            print(lTopPlaceID[indexPath.item])
+            //print(lTopPlaceID[indexPath.item])
             placeIDForDetailsViewCall = lTopPlaceID[indexPath.item]
             self.performSegue(withIdentifier: "afterLoginHomeToPlaceDetails", sender: self)
         } else if collectionView == self.lTopCardCollectionView{
-            print(lTopCardID[indexPath.item])
+            //print(lTopCardID[indexPath.item])
             cardIDForDetailsViewCall = lTopCardID[indexPath.item]
             cardGuideIDForDetailsViewCall = topCardGuideID[indexPath.item]
             self.performSegue(withIdentifier: "afterLoginHomeToCardDetails", sender: self)
         } else if collectionView == self.lTopGuideCollectionView{
-            print(lTopGuideID[indexPath.item])
+            //print(lTopGuideID[indexPath.item])
             guideIDForDetailsViewCall = lTopGuideID[indexPath.item]
             self.performSegue(withIdentifier: "afterLoginHomeToGuideDetails", sender: self)
         }
