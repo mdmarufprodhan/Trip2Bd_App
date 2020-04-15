@@ -74,14 +74,23 @@ class LNotificationViewController: UIViewController, UICollectionViewDelegate, U
     
     var lTouristGuideRelationID = [String]()
     var lUpdatedAt = [String]()
+    var lIsAccepted = [String]()
     var lNotificationStatus = [Int]()
     
     //for cards
+    var lCardID = [String]()
     var lCardTitle = [String]()
     var lCardPricePerDay = [String]()
     
     //for guide
     var lGuideName = [String]()
+    
+    var lTouristGuideRelationIDToSend = ""
+    var lIsAcceptedToSend = ""
+    var lCardIDToSend = ""
+    var lCardTitleToSend = ""
+    var lGuideNameToSend = ""
+    var lCardPricePerDayToSend = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +117,8 @@ class LNotificationViewController: UIViewController, UICollectionViewDelegate, U
                     for notification in allNotification.data!{
                         self.lTouristGuideRelationID.append(String(notification.id))
                         self.lUpdatedAt.append(String(notification.updated_at))
+                        self.lCardID.append(String(notification.card_id))
+                        self.lIsAccepted.append(String(notification.is_accepted))
 //                        print("Notification API")
                         if (notification.is_accepted == 0 && notification.is_complited == 0 && notification.is_cancelled_by_tourist == 0 && notification.is_cancelled_by_guide == 0){
                             self.lNotificationStatus.append(1)
@@ -196,7 +207,7 @@ class LNotificationViewController: UIViewController, UICollectionViewDelegate, U
         } else if self.lNotificationStatus[indexPath.item] == 4{
             forlNotificationCell.lRequestedLabel.text = "Compleated"
         } else if self.lNotificationStatus[indexPath.item] == 5{
-            forlNotificationCell.lRequestedLabel.text = "Canceled"
+            forlNotificationCell.lRequestedLabel.text = "Cancelled"
         }
         
         // for cell ui
@@ -214,5 +225,28 @@ class LNotificationViewController: UIViewController, UICollectionViewDelegate, U
         return forlNotificationCell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.lNotificationCollectionView{
+            lTouristGuideRelationIDToSend = lTouristGuideRelationID[indexPath.item]
+            lIsAcceptedToSend = lIsAccepted[indexPath.item]
+            lCardIDToSend = lCardID[indexPath.item]
+            lCardTitleToSend = lCardTitle[indexPath.item]
+            lCardPricePerDayToSend = lCardPricePerDay[indexPath.item]
+            lGuideNameToSend = lGuideName[indexPath.item]
+            self.performSegue(withIdentifier: "notificationToDetails", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "notificationToDetails"){
+            let vc = segue.destination as! LNotificationDetailsViewController
+            vc.lTouristGuideRelationIDReceived = self.lTouristGuideRelationIDToSend
+            vc.lIsAcceptedReceived = self.lIsAcceptedToSend
+            vc.lCardIDReceived = self.lCardIDToSend
+            vc.lCardTitleReceived = self.lCardTitleToSend
+            vc.lCardPricePerDayReceived = self.lCardPricePerDayToSend
+            vc.lGuideNameReceived = self.lGuideNameToSend
+        }
+    }
 
 }

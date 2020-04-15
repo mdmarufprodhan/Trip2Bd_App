@@ -24,6 +24,7 @@
 		4E5B2623242F8292004A452E /* TopCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B2622242F8292004A452E /* TopCardCollectionViewCell.swift */; };
 		4E5EDDEF243DCD780007AA74 /* LCardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5EDDEE243DCD780007AA74 /* LCardDetailsViewController.swift */; };
 		4E5EDDF1243E24960007AA74 /* LGuideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5EDDF0243E24960007AA74 /* LGuideDetailsViewController.swift */; };
+		4E5F96862446F2A100E8FFB2 /* LNotificationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F96852446F2A100E8FFB2 /* LNotificationDetailsViewController.swift */; };
 		4E62E382242DF249002788F7 /* RegistrationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E62E381242DF249002788F7 /* RegistrationPageViewController.swift */; };
 		4E7D16C82438BEC6000B4E78 /* TopGuideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D16C72438BEC6000B4E78 /* TopGuideCollectionViewCell.swift */; };
 		4E9E9A72243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */; };
@@ -78,6 +79,7 @@
 		4E5B2622242F8292004A452E /* TopCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E5EDDEE243DCD780007AA74 /* LCardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCardDetailsViewController.swift; sourceTree = "<group>"; };
 		4E5EDDF0243E24960007AA74 /* LGuideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGuideDetailsViewController.swift; sourceTree = "<group>"; };
+		4E5F96852446F2A100E8FFB2 /* LNotificationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LNotificationDetailsViewController.swift; sourceTree = "<group>"; };
 		4E62E381242DF249002788F7 /* RegistrationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageViewController.swift; sourceTree = "<group>"; };
 		4E7D16C72438BEC6000B4E78 /* TopGuideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGuideCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E9E9A71243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTopPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				4E0FF7DF2445A9CD00BB482C /* LMyGuideViewController.swift */,
 				4E0FF7E124461BA100BB482C /* LGuideCardsCollectionViewCell.swift */,
 				4E0FF7E324461D1700BB482C /* LGuideCardsViewController.swift */,
+				4E5F96852446F2A100E8FFB2 /* LNotificationDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				4E9E9A72243A0CA10099E77E /* LTopPlaceCollectionViewCell.swift in Sources */,
 				4E1A3586242E4E100015D90D /* HomePageAfterLoginViewController.swift in Sources */,
 				4E24990B2421FB9700C319B8 /* LoginViewController.swift in Sources */,
+				4E5F96862446F2A100E8FFB2 /* LNotificationDetailsViewController.swift in Sources */,
 				4E3ECD0F243AC0C8007B1200 /* LPlaceDetailsViewController.swift in Sources */,
 				4EF76D5324068D22002C3C3B /* Trip2BD.xcdatamodeld in Sources */,
 				4E0FF7DC24447F4600BB482C /* LNotificationCollectionViewCell.swift in Sources */,

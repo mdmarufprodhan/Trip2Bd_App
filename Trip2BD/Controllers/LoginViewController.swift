@@ -129,4 +129,7 @@ class LoginViewController: UIViewController {
         
     }
 
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "loginToRegistrationPage", sender: self)
+    }
 }
