@@ -78,6 +78,7 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     @IBOutlet weak var lTopCardCollectionView: UICollectionView!
     @IBOutlet weak var lTopGuideCollectionView: UICollectionView!
     @IBOutlet weak var homeSOSButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
     
     var loggedInUserIDReceived = ""
     
@@ -133,6 +134,8 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
         
         // for round sos button
         homeSOSButton.layer.cornerRadius = 0.5 * homeSOSButton.bounds.size.width
+        // for logOut button radious
+        logOutButton.layer.cornerRadius = 8
 
         lTopPlaceCollectionView.delegate = self
         lTopCardCollectionView.delegate = self
@@ -413,4 +416,8 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
         present(sosButtonAlert, animated: true, completion: nil)
     }
     
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "logOutHomeToHome", sender: self)
+    }
 }

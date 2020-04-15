@@ -770,6 +770,9 @@
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="logOutButtonTapped:" destination="LQ1-dU-Diq" eventType="touchUpInside" id="m5b-QE-iIw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -788,6 +791,7 @@
                         <outlet property="lTopCardCollectionView" destination="OgF-AK-3Bf" id="XhT-NA-KIP"/>
                         <outlet property="lTopGuideCollectionView" destination="89w-Py-YsY" id="Bsq-Yx-JUc"/>
                         <outlet property="lTopPlaceCollectionView" destination="0C4-2e-x5g" id="p4j-Vj-ZaI"/>
+                        <outlet property="logOutButton" destination="TC9-Q5-q3Q" id="Kge-dS-sgm"/>
                         <segue destination="6TP-Yt-ucC" kind="show" identifier="afterLoginHomeToPlaceDetails" id="Zxq-LM-GXm"/>
                         <segue destination="lpV-YQ-G1a" kind="show" identifier="afterLoginHomeToCardDetails" id="jXP-Mf-Tua"/>
                         <segue destination="vOS-J7-7NV" kind="show" identifier="afterLoginHomeToGuideDetails" id="9QB-vH-Ev6"/>
@@ -1171,7 +1175,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="virus@mail.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-hT-CoE">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-hT-CoE">
                                 <rect key="frame" x="16" y="309" width="343" height="44"/>
                                 <color key="backgroundColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1182,7 +1186,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uwh-o4-hrM">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uwh-o4-hrM">
                                 <rect key="frame" x="16" y="373" width="343" height="44"/>
                                 <color key="backgroundColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.85098039215686272" alpha="0.19879066780821919" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1201,7 +1205,7 @@
                                     <constraint firstAttribute="height" constant="50" id="mnt-sJ-FP4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1228,6 +1232,7 @@
                             </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VKu-UE-YQq">
                                 <rect key="frame" x="310" y="505" width="51" height="31"/>
+                                <color key="onTintColor" red="0.33333333329999998" green="0.83137254900000002" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YX5-3A-Afo">
                                 <rect key="frame" x="212" y="512" width="94" height="17"/>
@@ -2680,6 +2685,7 @@
         <image name="yellowStarIcon" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="66t-xq-Chn"/>
         <segue reference="jXP-Mf-Tua"/>
         <segue reference="5Fk-p7-zDO"/>
     </inferredMetricsTieBreakers>

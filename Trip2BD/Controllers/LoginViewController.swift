@@ -79,6 +79,8 @@ class LoginViewController: UIViewController {
 //                            print(successMesage as Any)
                             
                             if(successMesage == true){
+                                self.emailTextField.text = ""
+                                self.passwordTextField.text = ""
                                 self.dismiss(animated: true, completion: nil)
                                 self.performSegue(withIdentifier: "loginToHomePage", sender: self)
                             }
