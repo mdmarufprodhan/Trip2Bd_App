@@ -418,6 +418,5 @@ class HomePageAfterLoginViewController: UIViewController, UICollectionViewDelega
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        //self.performSegue(withIdentifier: "logOutHomeToHome", sender: self)
     }
 }

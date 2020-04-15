@@ -79,10 +79,15 @@ class LoginViewController: UIViewController {
 //                            print(successMesage as Any)
                             
                             if(successMesage == true){
-                                self.emailTextField.text = ""
-                                self.passwordTextField.text = ""
-                                self.dismiss(animated: true, completion: nil)
-                                self.performSegue(withIdentifier: "loginToHomePage", sender: self)
+                                if self.rememberMeSwitch.isOn{
+                                    self.dismiss(animated: true, completion: nil)
+                                    self.performSegue(withIdentifier: "loginToHomePage", sender: self)
+                                } else{
+                                    self.emailTextField.text = ""
+                                    self.passwordTextField.text = ""
+                                    self.dismiss(animated: true, completion: nil)
+                                    self.performSegue(withIdentifier: "loginToHomePage", sender: self)
+                                }
                             }
                         } catch{
                             print("Error while parsing JSON")
